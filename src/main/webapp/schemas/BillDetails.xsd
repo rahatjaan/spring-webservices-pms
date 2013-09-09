@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://webservices.pms.spring.com" targetNamespace="http://webservices.pms.spring.com" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Bill" type="Bill"/>
+	<xs:complexType name="Bill">
+		<xs:sequence>
+			<xs:element name="FirstName" type="xs:string"/>
+			<xs:element name="LastName" type="xs:string"/>
+			<xs:element name="MemberShipNumber" type="xs:string"/>
+			<xs:element name="MobileNumber" type="xs:string"/>
+			<xs:element name="RoomNumber" type="xs:string"/>
+			<xs:element name="FloorNumber" type="xs:string"/>
+			<xs:element name="ArrivalDate" type="xs:dateTime"/>
+			<xs:element name="DepartureDate" type="xs:dateTime"/>
+			<xs:element name="FolioNumber" type="xs:string"/>
+			<xs:element name="TotalBill" type="xs:double"/>
+			<xs:element name="CardNumber" type="xs:string"/>
+			<xs:element name="BalanceAmount" type="xs:double"/>
+			<xs:element name="TotalChildren" type="xs:integer"/>
+			<xs:element name="TotalAdult" type="xs:integer"/>
+			<xs:element name="RoomRate" type="xs:double"/>
+			<xs:element name="TransactionId" type="xs:integer"/>
+			<xs:element name="TransactionDate" type="xs:dateTime"/>
+			<xs:element name="ReferenceNumber" type="xs:string"/>
+			<xs:element name="Charges" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

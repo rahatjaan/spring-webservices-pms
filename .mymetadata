@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="spring-webservices-pms"
+  id="myeclipse.1378566956882"
+  context-root="/spring-webservices-pms"
+  j2ee-spec="6.0"
+  archive="spring-webservices-pms.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
