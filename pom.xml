@@ -13,7 +13,7 @@
 		<spring.version>3.1.1.RELEASE</spring.version>
 		<spring.ws.version>2.0.0.RELEASE</spring.ws.version>
 		<log4j.version>1.2.16</log4j.version>
-		<context.path>spring-webservices-pms</context.path>
+		<context.path>ws-pms</context.path>
 	</properties>
 	<build>
 		<plugins>

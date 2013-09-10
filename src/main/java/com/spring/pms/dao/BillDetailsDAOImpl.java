@@ -10,14 +10,26 @@ import java.util.GregorianCalendar;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import com.spring.pms.dataSource.DataSource;
 import com.spring.pms.dto.GuestInfo;
 import com.spring.pms.dto.GuestStayInfo;
 import com.spring.pms.dto.GuestTransactionInfo;
 import com.spring.pms.webservices.Bill;
 
 public class BillDetailsDAOImpl implements BillDetailsDAO{
+	
+	DataSource ds = (DataSource) this.context.getBean("dataSource");
+	private static ApplicationContext context;
+
+	static{
+		context = new ClassPathXmlApplicationContext(
+				"spring-datasource.xml");
+	}
 
 	@Override
 	public Bill getBillDetails(String lastName, String membershipNumber,
@@ -33,9 +45,9 @@ public class BillDetailsDAOImpl implements BillDetailsDAO{
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		      // Setup the connection with the DB
-		      conn = (Connection) DriverManager
-		          .getConnection("jdbc:mysql://localhost/pms?"
-		              + "user=root&password=root");
+			conn = (Connection) DriverManager
+			          .getConnection("jdbc:mysql://"+ds.getHOST()+":"+ds.getPORT()+"/"+ds.getDATABASE()+"?"
+			              + "user="+ds.getUSER()+"&password="+ds.getPASS());
 	    	PreparedStatement preparedStatement = (PreparedStatement) conn.prepareStatement(sql);
 	    	preparedStatement.setString(1, lastName);
 	    	preparedStatement.setString(2, membershipNumber);
@@ -99,9 +111,14 @@ public class BillDetailsDAOImpl implements BillDetailsDAO{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		      // Setup the connection with the DB
-		      conn = (Connection) DriverManager
-		          .getConnection("jdbc:mysql://localhost/pms?"
-		              + "user=root&password=root");
+			System.out.println("CREATING CONNECTION");
+			if(null == ds){
+				System.out.println("DS NOT WORKING FINE");
+			}
+			conn = (Connection) DriverManager
+			          .getConnection("jdbc:mysql://"+ds.getHOST()+":"+ds.getPORT()+"/"+ds.getDATABASE()+"?"
+			              + "user="+ds.getUSER()+"&password="+ds.getPASS());
+			System.out.println("CONNECTION SUCCESS");
 	    	PreparedStatement preparedStatement = (PreparedStatement) conn.prepareStatement(sql);
 	    	preparedStatement.setString(1, memberShipNumber);
 	    	ResultSet rs = preparedStatement.executeQuery();
@@ -145,9 +162,9 @@ public class BillDetailsDAOImpl implements BillDetailsDAO{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		      // Setup the connection with the DB
-		      conn = (Connection) DriverManager
-		          .getConnection("jdbc:mysql://localhost/pms?"
-		              + "user=root&password=root");
+			conn = (Connection) DriverManager
+			          .getConnection("jdbc:mysql://"+ds.getHOST()+":"+ds.getPORT()+"/"+ds.getDATABASE()+"?"
+			              + "user="+ds.getUSER()+"&password="+ds.getPASS());
 	    	PreparedStatement preparedStatement = (PreparedStatement) conn.prepareStatement(sql);
 	    	preparedStatement.setString(1, guestInfoId);
 	    	ResultSet rs = preparedStatement.executeQuery();
@@ -195,9 +212,9 @@ public class BillDetailsDAOImpl implements BillDetailsDAO{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		      // Setup the connection with the DB
-		      conn = (Connection) DriverManager
-		          .getConnection("jdbc:mysql://localhost/pms?"
-		              + "user=root&password=root");
+			conn = (Connection) DriverManager
+			          .getConnection("jdbc:mysql://"+ds.getHOST()+":"+ds.getPORT()+"/"+ds.getDATABASE()+"?"
+			              + "user="+ds.getUSER()+"&password="+ds.getPASS());
 	    	PreparedStatement preparedStatement = (PreparedStatement) conn.prepareStatement(sql);
 	    	preparedStatement.setString(1, guestStayInfoId);
 	    	ResultSet rs = preparedStatement.executeQuery();

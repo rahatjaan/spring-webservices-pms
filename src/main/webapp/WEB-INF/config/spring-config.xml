@@ -32,5 +32,7 @@
         <property name="serviceName" value="BillDetailsServices" />
         <property name="locationUri" value="/endpoints"/>
     </bean>
+    
+    
 
 </beans>

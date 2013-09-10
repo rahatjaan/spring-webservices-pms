@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+	<bean id="dataSource"
+		class="com.spring.pms.dataSource.DataSource">
+		
+		<property name="DATABASE" value="pms"/>
+      	<property name="PORT" value="3306"/>
+      	<property name="HOST" value="localhost"/>
+      	<property name="USER" value="root"/>
+      	<property name="PASS" value="root"/>
+      	
+	</bean>
+ 
+</beans>
